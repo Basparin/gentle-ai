@@ -2108,6 +2108,7 @@ func TestInjectStrictTDDIsIdempotent(t *testing.T) {
 // Specifically, sdd-apply/strict-tdd.md and sdd-verify/strict-tdd-verify.md
 // must be written to disk alongside their SKILL.md files.
 func TestInjectCopiesAllFilesFromSkillDirectory(t *testing.T) {
+	disablePluginInstall(t)
 	home := t.TempDir()
 
 	result, err := Inject(home, opencodeAdapter(), "")
@@ -2146,6 +2147,7 @@ func TestInjectCopiesAllFilesFromSkillDirectory(t *testing.T) {
 // TestInjectCopiesAllFilesReportedInResult verifies that all skill files
 // (including extra files beyond SKILL.md) are included in result.Files.
 func TestInjectCopiesAllFilesReportedInResult(t *testing.T) {
+	disablePluginInstall(t)
 	home := t.TempDir()
 
 	result, err := Inject(home, opencodeAdapter(), "")
